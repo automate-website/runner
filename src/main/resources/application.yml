@@ -1,0 +1,4 @@
+website.automate.runner:
+  id: 1
+  api-url: https://automate.website/api
+  job-poll-delay: 5000

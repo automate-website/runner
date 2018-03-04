@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "website.automate.runner.job-poll-delay",
+      "type": "java.lang.String",
+      "description": "Defines pause between job poll attempts."
+    },
+    {
+      "name": "website.automate.runner.id",
+      "type": "java.lang.String",
+      "description": "Unique ID of the runner instance."
+    },
+    {
+      "name": "website.automate.runner.api-url",
+      "type": "java.lang.String",
+      "description": "Base URL of the API."
+    }
+  ]
+}
