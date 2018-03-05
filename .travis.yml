@@ -1,0 +1,23 @@
+language: java
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - pip install --user codecov
+
+script:
+  - mvn clean package
+  - docker build -t automatewebsite/runner .
+
+after_success:
+  - codecov
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push automatewebsite/runner;
+    fi
+  - if [ ! -z "$TRAVIS_TAG" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push automatewebsite/runner:$TRAVIS_TAG;
+    fi
