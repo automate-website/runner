@@ -2,3 +2,13 @@ website.automate.runner:
   id: 1
   api-url: https://automate.website/api
   job-poll-delay: 5000
+  clean-up-delay: 60000
+  concurrent: 3
+
+  docker:
+    uri: http://localhost:2375
+    stop-timeout: 10
+    image: automatewebsite/jwebrobot-chrome
+    command: "/opt/waml-executor/waml-executor.sh"
+    container-label: automate.website.runner.container
+    max-execution-time: 3600

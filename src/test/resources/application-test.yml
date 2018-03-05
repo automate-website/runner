@@ -1,3 +1,10 @@
+spring:
+  profiles:
+    active: test
+
 website.automate.runner:
   id: 999
   api-url: http://localhost:8081
+  docker:
+    container-label: test.automate.website.runner.container
+    max-execution-time: 1

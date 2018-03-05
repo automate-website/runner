@@ -2,7 +2,7 @@
   "properties": [
     {
       "name": "website.automate.runner.job-poll-delay",
-      "type": "java.lang.String",
+      "type": "java.lang.Integer",
       "description": "Defines pause between job poll attempts."
     },
     {
@@ -14,6 +14,46 @@
       "name": "website.automate.runner.api-url",
       "type": "java.lang.String",
       "description": "Base URL of the API."
+    },
+    {
+      "name": "website.automate.runner.clean-up-delay",
+      "type": "java.lang.Integer",
+      "description": "Defines pause between cleanups of stale containers."
+    },
+    {
+      "name": "website.automate.runner.concurrent",
+      "type": "java.lang.Integer",
+      "description": "Number of maximum allowed parallel scenario executions."
+    },
+    {
+      "name": "website.automate.runner.docker.uri",
+      "type": "java.lang.String",
+      "description": "URI or path to the Docker daemon."
+    },
+    {
+      "name": "website.automate.runner.docker.stop-timeout",
+      "type": "java.lang.Integer",
+      "description": "Stop timeout of a container."
+    },
+    {
+      "name": "website.automate.runner.docker.image",
+      "type": "java.lang.String",
+      "description": "Image to use for scenario execution."
+    },
+    {
+      "name": "website.automate.runner.docker.command",
+      "type": "java.lang.String",
+      "description": "Command to start the container."
+    },
+    {
+      "name": "website.automate.runner.docker.container-label",
+      "type": "java.lang.String",
+      "description": "Label automatically added to all child containers."
+    },
+    {
+      "name": "website.automate.runner.docker.max-execution-time",
+      "type": "java.lang.Integer",
+      "description": "Timeout after which the container considered to be stale."
     }
   ]
 }
