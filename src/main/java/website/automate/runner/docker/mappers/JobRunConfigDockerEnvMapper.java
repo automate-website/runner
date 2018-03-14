@@ -13,6 +13,13 @@ import static java.text.MessageFormat.format;
 
 @Component
 public class JobRunConfigDockerEnvMapper {
+    private static final String TAKE_SCREENSHOTS_TEMPLATE = "TAKE_SCREENSHOTS={0}";
+    private static final String PULL_URL_TEMPLATE = "PULL_URL={0}";
+    private static final String PUSH_URL_TEMPLATE = "PUSH_URL={0}";
+    private static final String SCENARIO_PATTERN_TEMPLATE = "SCENARIO_PATTERN={0}";
+    private static final String GEOMETRY_TEMPLATE = "GEOMETRY={0}";
+    private static final String CONTEXT_TEMPLATE = "CONTEXT={0}";
+
     @Autowired
     private RunnerSettings runnerSettings;
 
@@ -20,23 +27,23 @@ public class JobRunConfigDockerEnvMapper {
         List<String> envList = new ArrayList<>();
 
         if (jobRunConfig.getTakeScreenshots() != null) {
-            envList.add(format("TAKE_SCREENSHOTS={0}", jobRunConfig.getTakeScreenshots()));
+            envList.add(format(TAKE_SCREENSHOTS_TEMPLATE, jobRunConfig.getTakeScreenshots()));
         }
-        envList.add(format("ATFACTORY_PULL={0}", prependBaseUrl(jobRunConfig.getPullUrl())));
-        envList.add(format("ATFACTORY_PUSH={0}", prependBaseUrl(jobRunConfig.getPushUrl())));
+        envList.add(format(PULL_URL_TEMPLATE, prependBaseUrl(jobRunConfig.getPullUrl())));
+        envList.add(format(PUSH_URL_TEMPLATE, prependBaseUrl(jobRunConfig.getPushUrl())));
 
         if (jobRunConfig.getScenarioPattern() != null) {
-            envList.add(format("SCENARIO_PATTERN={0}", jobRunConfig.getScenarioPattern()));
+            envList.add(format(SCENARIO_PATTERN_TEMPLATE, jobRunConfig.getScenarioPattern()));
         }
 
         if (jobRunConfig.getDisplayGeometry() != null) {
-            envList.add(format("GEOMETRY={0}", jobRunConfig.getDisplayGeometry()));
+            envList.add(format(GEOMETRY_TEMPLATE, jobRunConfig.getDisplayGeometry()));
         }
 
         // TODO add support for context
         Map<String, String> context = jobRunConfig.getContext();
         if (!context.isEmpty()) {
-            envList.add(format("CONTEXT={0}", context));
+            envList.add(format(CONTEXT_TEMPLATE, context));
         }
 
         return envList;
