@@ -6,7 +6,7 @@ website.automate.runner:
   concurrent: 3
 
   docker:
-    uri: http://localhost:2375
+    uri: unix:///var/run/docker.sock
     stop-timeout: 10
     image: automatewebsite/jwebrobot-chrome
     command: "/opt/waml-executor/waml-executor.sh"
