@@ -9,6 +9,5 @@ website.automate.runner:
     uri: unix:///var/run/docker.sock
     stop-timeout: 10
     image: automatewebsite/jwebrobot-chrome
-    command: "/opt/waml-executor/waml-executor.sh"
-    container-label: automate.website.runner.container
+    container-label: website.automate.runner.container
     max-execution-time: 3600

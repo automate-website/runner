@@ -41,11 +41,6 @@
       "description": "Image to use for scenario execution."
     },
     {
-      "name": "website.automate.runner.docker.command",
-      "type": "java.lang.String",
-      "description": "Command to start the container."
-    },
-    {
       "name": "website.automate.runner.docker.container-label",
       "type": "java.lang.String",
       "description": "Label automatically added to all child containers."

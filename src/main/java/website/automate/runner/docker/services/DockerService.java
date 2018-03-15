@@ -63,7 +63,6 @@ public class DockerService {
 
         ContainerConfig containerConfig = ContainerConfig.builder()
                 .image(imageName)
-                .cmd(runnerSettings.getDocker().getCommand())
                 .env(jobRunConfigDockerEnvMapper.toEnv(jobRunConfig))
                 .labels(getLabels(jobRunConfig))
                 .build();
